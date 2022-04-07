@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # books-tracker-app
 =======
 # passport-boilerplate
