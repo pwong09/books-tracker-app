@@ -29,7 +29,8 @@ function index (req, res) {
         })
     } else {
     res.render('index', {
-        title: 'PW'
+        title: 'PW',
+        results: null
         });
     }
 }

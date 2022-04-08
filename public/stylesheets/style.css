@@ -66,3 +66,17 @@ nav > a.active {
 .login img {
   height: 30px;
 }
+
+section {
+  width: 360px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+section > div {
+  margin: 10px;
+  font-size: 12px;
+}
+div > span {
+  font-weight: 700;
+}

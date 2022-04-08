@@ -1,6 +1,35 @@
 <%- include('../partials/header') %>
 
-<h1>Welcome to Books main page!</h1>
+<h1>Welcome to books!</h1>
+<% console.log(user) %> 
 
+<form>
+    <label>Find a book by title:</label><br>
+    <input type="text" name="q" />
+    <input type="submit" value="Search Books" />
+</form>
+
+<% if (results) { %> 
+    <% for( let i = 0; i < 6; i++ ) { %>
+        <section>
+            <div>
+                <img 
+                    src="<%= results[i].volumeInfo.imageLinks ? results[i].volumeInfo.imageLinks.thumbnail : null %>"
+                    alt="<%= results[i].volumeInfo.title %>"
+                    width="110" height="auto" /><br>
+                <span>Average Rating:</span> <%= results[i].volumeInfo.averageRating %><br>
+                <span>Total Ratings:</span> <%= results[i].volumeInfo.ratingsCount %><br>
+            </div>
+            <div>
+                <span>Title:</span> <%= results[i].volumeInfo.title %><br> 
+                <span>Author(s):</span> <%= results[i].volumeInfo.authors %><br> 
+                <span>Publisher:</span> <%= results[i].volumeInfo.publisher %><br> 
+                <span>Date Published:</span> <%= results[i].volumeInfo.publishedDate %><br>
+                <span>Description:</span> 
+                    <%= typeof(results[i].volumeInfo.description) === 'string' ? results[i].volumeInfo.description.substring(0, 225) : null %> 
+            </div>
+        </section>
+    <% } %>
+<% } %> 
 
 <%- include('../partials/footer') %> 
