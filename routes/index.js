@@ -1,12 +1,10 @@
 var router = require('express').Router();
 const passport = require('passport');
-const key = process.env.API_KEY;
+const indexCtrl = require('../controllers/index');
 
 // The root route renders our only view
-router.get('/', function(req, res) {
-  // Where do you want to go for the root route
-  res.redirect('/');
-});
+router.get('/', indexCtrl.index);
+
 
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(

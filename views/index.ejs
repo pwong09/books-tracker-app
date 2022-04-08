@@ -1,3 +1,32 @@
-<%- include('../partials/header') %>
-<h1>Welcome!</h1>
-<%- include('../partials/footer') %> 
+<%- include('partials/header') %>
+        <h1>Welcome!</h1>
+
+    <form>
+        <label>Find a book by title:</label><br>
+        <input type="text" name="q" />
+        <input type="submit" value="Search Books" />
+    </form>
+
+    <% if (results) { %> 
+        <% for( let i = 0; i < 6; i++ ) { %>
+            <section>
+                <div>
+                    <img 
+                        src="<%= results[i].volumeInfo.imageLinks ? results[i].volumeInfo.imageLinks.thumbnail : null %>"
+                        width="110" height="auto" /><br>
+                    Average Rating: <%= results[i].volumeInfo.averageRating %><br>
+                    Total Ratings: <%= results[i].volumeInfo.ratingsCount %><br>
+                </div>
+                <div>
+                    Title: <%= results[i].volumeInfo.title %><br> 
+                    Subtitle: <%= results[i].volumeInfo.subtitle %><br> 
+                    Author(s): <%= results[i].volumeInfo.authors %><br> 
+                    Publisher: <%= results[i].volumeInfo.publisher %><br> 
+                    Date Published: <%= results[i].volumeInfo.publishedDate %><br>
+                </div>
+            </section>
+        <% } %>
+    <% } %> 
+
+
+<%- include('partials/footer') %> 
