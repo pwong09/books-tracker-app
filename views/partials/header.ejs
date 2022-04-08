@@ -12,7 +12,7 @@
     <% if (user) { %>
     <a href=""	<%- title === 'My Account' ? 'class="active"' : '' %>>
     ACCOUNT</a>
-    <a href="/books/show" <%- title === 'My Shelf' ? 'class="active"' : '' %>>MY SHELF</a>
+    <a href="/books/all" <%- title === 'My Shelf' ? 'class="active"' : '' %>>MY SHELF</a>
     <a href="/logout">LOG OUT</a>
     <% } else { %>
     <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>

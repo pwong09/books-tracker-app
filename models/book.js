@@ -9,9 +9,9 @@ const reviewSchema = new Schema ({
 });
 
 const bookSchema = new Schema ({
+    googleId: String,
     title: {type: String, required: true},
     author: {type: String, required: true},
-    isbn: String,
     imageLinks: String,
     recommend: {type: String},
     user: {type: Schema.Types.ObjectId, ref: 'User'},

@@ -1,4 +1,20 @@
 <%- include('../partials/header') %>
-    <h1>My Shelf</h1>
+    <h1><%= book.title %></h1>
+    <section>
+            <img src="<%= book.imageLinks %>"
+                width="100px" height="auto" alt="<%= book.title %>"><br>
+            <span>Title: </span><%= book.title %><br>
+            <span>Author(s): </span><%= book.author %><br>
+            <span>Recommended by: </span><%= book.recommend %>
+        <!--update book-->
+    </section>
+    <h2>My Reviews</h2>
 
+    <h2>My Notes</h2>
+    <!--go back to all books-->
+    <a class="button" href="/books/all">Back</a>
+    <!--delete book-->
+    <form method="POST" action="/books/<%= book._id %>?_method=DELETE">
+        <input class="button" type="submit" value="Remove Book" />
+    </form>
 <%- include('../partials/footer') %> 

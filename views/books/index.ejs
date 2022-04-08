@@ -29,7 +29,10 @@
             </div>
         </section>
         <form action="/books/new" method="GET">
-            <input type="hidden" name="id" value="<%= results[i].id %>" />
+            <input type="hidden" name="googleId" value="<%= results[i].id %>" />
+            <input type="hidden" name="title" value="<%= results[i].volumeInfo.title %>" />
+            <input type="hidden" name="author" value="<%= results[i].volumeInfo.authors %>" />
+            <input type="hidden" name="imageLinks" value="<%= results[i].volumeInfo.imageLinks ? results[i].volumeInfo.imageLinks.thumbnail : null %>" />
             <input class="button" type="submit" value="Add to My Shelf" />
         </form>
     <% } %>
