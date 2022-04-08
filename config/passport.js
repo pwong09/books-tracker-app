@@ -24,7 +24,8 @@ passport.use(new GoogleStrategy({
           googleId: profile.id,
           email: profile.emails[0].value,
           avatar: profile.photos[0].value
-        })
+        });
+        return cb(null, user);
       } catch(err) {
         return cb(err);
       }
@@ -37,11 +38,15 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-
   // Find your User, using your model, and then call done(err, whateverYourUserIsCalled)
-  // When you call this done function passport assigns the user document to req.user, which will 
-  // be availible in every Single controller function, so you always know the logged in user
-
+  User.findById(userId)
+  .then(function(user) {
+    done(null, user);
+  })
+  // When you call this done function passport assigns the user 
+  // document to req.user, which will 
+  // be availible in every Single controller function, 
+  // so you always know the logged in user
 });
 
 
