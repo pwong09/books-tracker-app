@@ -1,13 +1,9 @@
 var router = require('express').Router();
-const passport = require('passport');
-const key = process.env.API_KEY;
+const isLoggedIn = require('../config/auth');
+const booksCtrl = require('../controllers/books');
 
-router.get('/', function(req, res) {
-    // Where do you want to go for the root route
-    res.render('books/index', {
-        title: 'PW',
-        results: null
-    });
-});
+router.get('/', isLoggedIn, booksCtrl.index);
+router.get('/new', isLoggedIn, booksCtrl.new);
+
 
 module.exports = router;

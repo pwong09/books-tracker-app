@@ -1,9 +1,8 @@
 <%- include('../partials/header') %>
 
 <h1>Welcome to books!</h1>
-<% console.log(user) %> 
 
-<form>
+<form method="GET" action="/books">
     <label>Find a book by title:</label><br>
     <input type="text" name="q" />
     <input type="submit" value="Search Books" />
@@ -29,6 +28,10 @@
                     <%= typeof(results[i].volumeInfo.description) === 'string' ? results[i].volumeInfo.description.substring(0, 225) : null %> 
             </div>
         </section>
+        <form action="/books/new" method="GET">
+            <input type="hidden" name="id" value="<%= results[i].id %>" />
+            <input class="button" type="submit" value="Add to My Shelf" />
+        </form>
     <% } %>
 <% } %> 
 

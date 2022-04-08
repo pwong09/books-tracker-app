@@ -80,3 +80,14 @@ section > div {
 div > span {
   font-weight: 700;
 }
+.button {
+  text-decoration: none;
+  color: black;
+  background-color: #87d7f6;
+  border: 1px solid #87d7f6;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 10px;
+}

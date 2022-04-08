@@ -11,7 +11,6 @@ router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'] }
 ));
-
 // Google OAuth callback route
 router.get('/oauth2callback', passport.authenticate(
   'google',
@@ -20,7 +19,6 @@ router.get('/oauth2callback', passport.authenticate(
     failureRedirect : '/' // where do you want the client to go if login fails - root
   }
 ));
-
 // OAuth logout route
 router.get('/logout', function(req, res){
   req.logout();

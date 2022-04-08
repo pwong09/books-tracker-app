@@ -21,7 +21,7 @@ function index (req, res) {
             // console.log('access info')
             // console.log(searchResults.items[0].searchInfo)
             // console.log('search info')
-            console.log(results[0].volumeInfo.imageLinks.thumbnail)
+            //console.log(results[0].volumeInfo.imageLinks.thumbnail)
             res.render('index', {
                 title: 'Search Books',
                 results
