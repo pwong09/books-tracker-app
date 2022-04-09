@@ -8,6 +8,7 @@ const passport = require('passport');
 const methodOverride = require('method-override');
 const indexRoutes = require('./routes/index');
 const booksRoutes = require('./routes/books');
+const reviewsRoutes = require('./routes/reviews');
 // load the env consts
 require('dotenv').config();
 
@@ -51,6 +52,7 @@ app.use(function (req, res, next) {
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
 app.use('/books', booksRoutes);
+app.use('/', reviewsRoutes);
 
 
 // invalid request, send 404 page

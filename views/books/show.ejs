@@ -9,7 +9,19 @@
         <!--update book-->
     </section>
     <h2>My Reviews</h2>
-
+        <form method="POST" action="/books/<%= book._id %>/reviews">
+            <label>Review:</label>
+            <textarea name="content"></textarea><br>
+            <label>Rating:</label>
+            <select name="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+            <input class="button" type="submit" value="Add Review">
+        </form>
     <h2>My Notes</h2>
     <!--go back to all books-->
     <a class="button" href="/books/all">Back</a>
