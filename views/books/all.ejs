@@ -16,9 +16,10 @@
                             width="100px" height="auto" alt="<%= b.title %>"></td>
                     <td><%= b.title %></td>
                     <td><%= b.author %></td>
-                    <td><a href="/books/<%= b._id %>">See More</a></td>
+                    <td><a class="button" href="/books/<%= b._id %>">See More</a></td>
                 </tr>
             <% }); %> 
         </tbody>
     </table>
+    <a class="button" href="/books">Add More Books</a>
 <%- include('../partials/footer') %> 

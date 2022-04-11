@@ -52,7 +52,7 @@ function create(req, res) {
 }
 
 function allBooks(req, res) {
-    Book.find({}, function(err, books) {
+    Book.find({'user': req.user._id}, function(err, books) {
         res.render('books/all', {
             title: 'My Shelf',
             books
@@ -83,10 +83,6 @@ function edit(req, res) {
 }
 
 function updateBook(req, res) {
-    // console.log(req.body);
-    // console.log('this is req body')
-    // console.log(req.params.id)
-    // console.log('this is req params id')
     Book.findOne({'_id': req.params.id}, function(err, book) {
         console.log(book);
         console.log('this is the book');

@@ -8,8 +8,9 @@
     </form>
 
     <% if (results) { %> 
-        <% for( let i = 0; i < 11; i++ ) { %>
+        <% for( let i = 0; i < results.length; i++ ) { %>
             <section>
+                <% if (results[i].volumeInfo) { %>
                 <div>
                     <img 
                         src="<%= results[i].volumeInfo.imageLinks ? results[i].volumeInfo.imageLinks.thumbnail : null %>"
@@ -26,6 +27,9 @@
                     <span>Description:</span> 
                         <%= typeof(results[i].volumeInfo.description) === 'string' ? results[i].volumeInfo.description.substring(0, 225) : null %> 
                 </div>
+                <% } else { %>
+                    <p>Please narrow in your search</p>
+                <% } %>
             </section>
         <% } %>
     <% } %> 

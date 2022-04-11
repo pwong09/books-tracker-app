@@ -20,6 +20,7 @@
                         <th>Review</th>
                         <th>Rating</th>
                         <th>Delete</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,9 +39,26 @@
                                 </form>
                                 <% } %>
                             </td>
+                            <td>
+
+                            </td>
                         </tr>
                         <tr>
-
+                            <!--edit a review-->
+                            <form method="POST" action="/reviews/<%= r._id %>?_method=PUT">
+                                <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>"><%= r.userName %></td>
+                                <td><%= r.createdAt.toLocaleDateString() %></td>
+                                <td><textarea name="content" value="<%= r.content %>"></textarea></td>
+                                <td><select name="rating">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select></td>
+                                <td></td>
+                                <td><input class="button" type="submit" value="Edit Review" /></td>
+                            </form>
                         </tr>
                     <% }); %>
                 </tbody>
