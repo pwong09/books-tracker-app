@@ -1,13 +1,15 @@
 <%- include('../partials/header') %>
-    <h1><%= book.title %></h1>
+    <script defer src="/javascript/reviews.js"></script>
     <section>
-            <img src="<%= book.imageLinks %>"
-                width="100px" height="auto" alt="<%= book.title %>"><br>
-            <span>Title: </span><%= book.title %><br>
-            <span>Author(s): </span><%= book.author %><br>
+        <img src="<%= book.imageLinks %>"
+            width="100px" height="auto" alt="<%= book.title %>">
+        <div class="book-details">
+            <h2><%= book.title %></h2>
+            <span>Author(s): </span><%= book.author %><br><br>
             <span>Recommended by: </span><%= book.recommend %>
         <!--update book-->
             <a class="button" href="/books/<%= book._id %>/edit">Edit Book</a>
+        </div>
     </section>
     <h2>Reviews</h2>
         <!--show reviews-->
@@ -40,15 +42,18 @@
                                 <% } %>
                             </td>
                             <td>
-
+                                <!--<form method="GET" action="/reviews/<%= r._id %>/edit">
+                                    <button id="edits-review" class="button" type="submit">Edit</button>
+                                </form>-->
+                                <button id="edits-review" class="button" type="submit">Edit</button>
                             </td>
                         </tr>
-                        <tr>
-                            <!--edit a review-->
+                        <!--edit a review-->
+                        <tr class="edit-review-form">
                             <form method="POST" action="/reviews/<%= r._id %>?_method=PUT">
                                 <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>"><%= r.userName %></td>
                                 <td><%= r.createdAt.toLocaleDateString() %></td>
-                                <td><textarea name="content" value="<%= r.content %>"></textarea></td>
+                                <td><textarea name="content"><%= r.content %></textarea></td>
                                 <td><select name="rating">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -81,10 +86,12 @@
             <input class="button" type="submit" value="Add Review">
         </form>
     <h2>My Notes</h2>
+    <div class="bottom-buttons">
     <!--go back to all books-->
     <a class="button" href="/books/all">Back</a>
     <!--delete book-->
     <form method="POST" action="/books/<%= book._id %>?_method=DELETE">
-        <input class="button" type="submit" value="Remove Book" />
+        <input class="button" id="delete-book" type="submit" value="Remove Book" />
     </form>
+    </div>
 <%- include('../partials/footer') %> 

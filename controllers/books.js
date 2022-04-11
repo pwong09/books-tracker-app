@@ -84,12 +84,8 @@ function edit(req, res) {
 
 function updateBook(req, res) {
     Book.findOne({'_id': req.params.id}, function(err, book) {
-        console.log(book);
-        console.log('this is the book');
         if (!book.user.equals(req.user._id)) return res.redirect('/books/edit');
         book.recommend = req.body.recommend;
-        console.log(book);
-        console.log('updated book?');
         book.save(function(err) {
             if (err) return res.send(err);
             res.redirect(`/books/${book._id}`)

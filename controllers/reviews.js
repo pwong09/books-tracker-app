@@ -4,7 +4,8 @@ const User = require('../models/user');
 module.exports = {
     create: createReview,
     delete: deleteReview,
-    update: updateReview
+    update: updateReview,
+    edit: editReview
 }
 
 function createReview(req, res){
@@ -39,14 +40,8 @@ function deleteReview(req, res){
 }
 
 function updateReview(req, res) {
-    console.log(req.body);
-    console.log('this is req.body with new review content and rating');
-    console.log(req.params.id)
-    console.log('this is req params id which refers to review id')
     Book.findOne({'reviews._id': req.params.id}).then(function(book) {
         const review = book.reviews.id(req.params.id);
-        console.log(review);
-        console.log('this is the right review?');
         if (!review.user.equals(req.user._id)) return res.redirect(`/books/${book._id}`);
         review.content = req.body.content;
         review.rating = req.body.rating;
@@ -54,6 +49,14 @@ function updateReview(req, res) {
             res.redirect(`/books/${book._id}`);
         }).catch(function(err) {
             return next(err);
-        })
-    })
+        });
+    });
+}
+
+function editReview(req, res) {
+    Book.findOne({'reviews._id': req.params.id}).then(function(book) {
+        const review = book.reviews.id(req.params.id);
+        if (!review.user.equals(req.user._id)) return res.redirect(`/books/${book._id}`);
+        res.redirect(`/books/${book._id}`);
+    });
 }
