@@ -9,7 +9,9 @@ module.exports = {
     create,
     all: allBooks,
     show,
-    delete: deleteBook
+    delete: deleteBook,
+    edit,
+    update: updateBook
 }
 
 function index (req, res) {
@@ -41,6 +43,7 @@ function newBook(req, res) {
 }
 
 function create(req, res) {
+    req.body.user = req.user._id;
     const book = new Book(req.body);
     book.save(function (err) {
         if (err) return res.redirect('/books/new');
@@ -60,7 +63,7 @@ function allBooks(req, res) {
 function show(req, res){
     Book.findById(req.params.id, function(err, book) {
         res.render('books/show', {
-            title: book.title,
+            title: 'My Book',
             book
         })
     })
@@ -69,6 +72,32 @@ function show(req, res){
 function deleteBook(req, res) {
     Book.findByIdAndDelete(req.params.id, function(err) {
         res.redirect('/books/all')
+    })
+}
+
+function edit(req, res) {
+    Book.findById(req.params.id, function(err, book) {
+        if (!book.user.equals(req.user._id)) return res.redirect('/books');
+        res.render(`books/edit`, {title: 'edit book', book});
+    });
+}
+
+function updateBook(req, res) {
+    // console.log(req.body);
+    // console.log('this is req body')
+    // console.log(req.params.id)
+    // console.log('this is req params id')
+    Book.findOne({'_id': req.params.id}, function(err, book) {
+        console.log(book);
+        console.log('this is the book');
+        if (!book.user.equals(req.user._id)) return res.redirect('/books/edit');
+        book.recommend = req.body.recommend;
+        console.log(book);
+        console.log('updated book?');
+        book.save(function(err) {
+            if (err) return res.send(err);
+            res.redirect(`/books/${book._id}`)
+        })
     })
 }
 

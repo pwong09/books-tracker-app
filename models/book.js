@@ -14,7 +14,7 @@ const bookSchema = new Schema ({
     author: {type: String, required: true},
     imageLinks: String,
     recommend: {type: String},
-    user: {type: Schema.Types.ObjectId, ref: 'User'},
+    user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
     reviews: [reviewSchema]
 });
 
