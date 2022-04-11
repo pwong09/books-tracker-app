@@ -19,15 +19,6 @@ function index (req, res) {
         function(err, response, body) {
             const searchResults = JSON.parse(body);
             const results = searchResults.items;
-            //console.log(searchResults)
-            //console.log(searchResults.items[0].volumeInfo)
-            // console.log(searchResults.items[0].saleInfo)
-            // console.log('sale info')
-            // console.log(searchResults.items[0].accessInfo)
-            // console.log('access info')
-            // console.log(searchResults.items[0].searchInfo)
-            // console.log('search info')
-            // console.log(results[0].volumeInfo.imageLinks.thumbnail)
             res.render('books/index', {
                 title: 'Search Books',
                 results
@@ -42,8 +33,6 @@ function index (req, res) {
 }
 
 function newBook(req, res) {
-    // console.log(req.query);
-    // console.log('this is req.query in newBook function');
     const book = req.query;
     res.render('books/new', {
         title: 'Add Book',
@@ -52,12 +41,10 @@ function newBook(req, res) {
 }
 
 function create(req, res) {
-    // console.log(req.body)
-    // console.log('this is req.body in create function')
     const book = new Book(req.body);
     book.save(function (err) {
         if (err) return res.redirect('/books/new');
-        res.redirect('/books'); //change to show the book's details page?
+        res.redirect(`/books/${book._id}`);
     })
 }
 
@@ -84,3 +71,15 @@ function deleteBook(req, res) {
         res.redirect('/books/all')
     })
 }
+
+// retrieves a specific Bookshelf resource for specified user
+// HTTP Request URL
+// https://www.googleapis.com/books/v1/users/userId/bookshelves/shelf
+
+// https://books.google.com/books?hl=en&as_coll=0&num=10&uid=11122233344455566778&source=gbs_slider_cls_metadata_0_mylibrary
+
+// my user id?
+// uid=109111253931517415981
+
+// bookshelf id
+// as_coll=4

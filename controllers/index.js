@@ -13,15 +13,6 @@ function index (req, res) {
         function(err, response, body) {
             const searchResults = JSON.parse(body);
             const results = searchResults.items;
-            //console.log(searchResults)
-            //console.log(searchResults.items[0].volumeInfo)
-            // console.log(searchResults.items[0].saleInfo)
-            // console.log('sale info')
-            // console.log(searchResults.items[0].accessInfo)
-            // console.log('access info')
-            // console.log(searchResults.items[0].searchInfo)
-            // console.log('search info')
-            //console.log(results[0].volumeInfo.imageLinks.thumbnail)
             res.render('index', {
                 title: 'Search Books',
                 results
