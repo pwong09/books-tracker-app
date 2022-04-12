@@ -182,4 +182,24 @@ span {
   display: none;
   margin-top: 10px;
 }
-
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer > .copyright {
+  font-size: 10px;
+}
+footer > a {
+  text-decoration: none;
+}
+footer > a:hover {
+  text-decoration: underline;
+}
+.socials {
+  padding: 0 5px;
+}
+.socials img {
+  width: 3vw;
+  height: auto;
+}

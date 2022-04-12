@@ -1,25 +1,11 @@
 <%- include('../partials/header') %>
     <h1>My Shelf</h1>
-    <table>
-        <thead>
-            <tr>
-                <th></th>
-                <th>Title</th>
-                <th>Author(s)</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
             <% books.forEach(b => { %>
-                <tr>
-                    <td><img src="<%= b.imageLinks %>"
-                            width="100px" height="auto" alt="<%= b.title %>"></td>
-                    <td><%= b.title %></td>
-                    <td><%= b.author %></td>
-                    <td><a class="button" href="/books/<%= b._id %>">See More</a></td>
-                </tr>
+                    <img src="<%= b.imageLinks %>"
+                            width="100px" height="auto" alt="<%= b.title %>"><br>
+                    <%= b.title %> by <%= b.author %><br>
+                    <a class="button" href="/books/<%= b._id %>">See More</a><br>
             <% }); %> 
-        </tbody>
-    </table>
+
     <a class="button" href="/books">Add More Books</a>
 <%- include('../partials/footer') %> 
