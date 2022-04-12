@@ -72,14 +72,14 @@
         </div>
     <h2>My Notes</h2>
     <section class="notes">
-    <!--show all notes with user ID and book ID-->
+    <!--show all notes associated with user ID and book ID-->
         <% notes.forEach(n => { %>
             <%= n.text %><br>
             <!--delete a note-->
             <form action="/notes/<%= n._id %>?_method=DELETE" method="POST">
                 <button class="crud-button" type="submit">Delete</button>
             </form>
-            <!--edit a review-->
+            <!--edit a note-->
             <form method="POST" action="/notes/<%= n._id %>?_method=PUT">                        
                 <textarea name="text"><%= n.text %></textarea><br>
                 <input class="button" type="submit" value="Edit Note" />
@@ -95,7 +95,6 @@
             <input class="button" type="submit" value="Add Note">
         </form>
     </div>
-    <!--footer buttons-->
     <div class="bottom-buttons">
     <!--go back to all books-->
     <a class="button" href="/books/all">Back</a>
