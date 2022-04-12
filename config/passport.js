@@ -11,9 +11,9 @@ passport.use(new GoogleStrategy({
   },
   function(accessToken, refreshToken, profile, cb) {
     // a user has logged in via OAuth!
-    console.log(profile);
-    console.log('---^^----this is the google profile object---^^----');
-    console.log('this console log is from passport.js')
+    //console.log(profile);
+    //console.log('---^^----this is the google profile object---^^----');
+    //console.log('this console log is from passport.js')
     User.findOne({ googleId: profile.id})
     .then(async function(user) {
       // existing user

@@ -1,6 +1,4 @@
 const Book = require('../models/book');
-const Note = require('../models/note');
-const User = require('../models/user');
 const request = require('request');
 
 module.exports = {
@@ -92,15 +90,3 @@ function updateBook(req, res) {
         })
     })
 }
-
-// retrieves a specific Bookshelf resource for specified user
-// HTTP Request URL
-// https://www.googleapis.com/books/v1/users/userId/bookshelves/shelf
-
-// https://books.google.com/books?hl=en&as_coll=0&num=10&uid=11122233344455566778&source=gbs_slider_cls_metadata_0_mylibrary
-
-// my user id?
-// uid=109111253931517415981
-
-// bookshelf id
-// as_coll=4
