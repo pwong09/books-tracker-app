@@ -1,9 +1,9 @@
 <%- include('../partials/header') %>
 
-<h1>Welcome to books!</h1>
+<h1>Welcome <%= user.name %>!</h1>
 
 <form method="GET" action="/books">
-    <label>Find a book by title:</label><br>
+    <label>Find a book by title</label><br>
     <input type="text" name="q" />
     <input class="button" id="search-button" type="submit" value="Search Books" />
 </form>
@@ -33,7 +33,7 @@
             <input type="hidden" name="title" value="<%= results[i].volumeInfo.title %>" />
             <input type="hidden" name="author" value="<%= results[i].volumeInfo.authors %>" />
             <input type="hidden" name="imageLinks" value="<%= results[i].volumeInfo.imageLinks ? results[i].volumeInfo.imageLinks.thumbnail : null %>" />
-            <input class="button" type="submit" value="Add to My Shelf" />
+            <input class="button" id="add-to-shelf" type="submit" value="Add to My Shelf" />
         </form>
     <% } %>
 <% } %> 

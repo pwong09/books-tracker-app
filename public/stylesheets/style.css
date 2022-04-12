@@ -1,7 +1,13 @@
+:root {
+  --main-color: #3A081E;
+  --main-button: #28502E;
+  --support-color: #FFBF46;
+  --support-button: #B3DEC1;
+}
 * {
   box-sizing: border-box;
   font-family: Helvetica;
-  color: #424748;
+  color: #000000;
 }
 body {
   margin: 0;
@@ -14,7 +20,7 @@ body {
 }
 body > nav {
   grid-area: nav;
-  background-color: black;
+  background-color: var(--main-color);
   color: white;
   display: flex;
   justify-content: flex-end;
@@ -48,12 +54,12 @@ nav > a {
 
 nav > a:hover {
   color: white;
-  background-color: gray;
+  background-color: var(--support-button);
 }
 
 nav > a.active {
   color: black;
-  background-color: rgb(246, 214, 33);
+  background-color: var(--support-color);
 }
 .login {
   display: flex;
@@ -75,9 +81,9 @@ span {
 }
 .button {
   text-decoration: none;
-  color: black;
-  background-color: #87d7f6;
-  border: 1px solid #87d7f6;
+  color: white;
+  background-color: var(--main-button);
+  border: 1px solid var(--main-button);
   border-radius: 5px;
   padding: 8px;
   font-size: 16px;
@@ -85,6 +91,12 @@ span {
   margin-top: 10px;
   text-align: center;
   width: 100px;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: var(--support-button);
+  border: 1px solid var(--support-button);
+  color: black;
 }
 .book-details {
   display: flex;
@@ -92,7 +104,7 @@ span {
   font-size: 16px;
   margin-left: 10px;
 }
-#search-button {
+#search-button, #add-to-shelf {
   width: auto;
 }
 #delete-book {
@@ -100,6 +112,11 @@ span {
   border: 1px solid rgb(154, 43, 43);
   color: white;
   width: auto;
+}
+#delete-book:hover {
+  background-color: rgb(243, 27, 27);
+  border: 1px solid rgb(243, 27, 27);
+  color: black;
 }
 .bottom-buttons {
   display: flex;
