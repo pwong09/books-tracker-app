@@ -61,7 +61,6 @@ nav > a.active {
   align-items: center;
   height: 34px;
 }
-
 .login img {
   height: 30px;
 }
@@ -70,10 +69,6 @@ section {
   margin: 10px;
   display: flex;
   align-items: center;
-}
-section > div {
-  margin: 10px;
-  font-size: 12px;
 }
 span {
   font-weight: 700;
@@ -94,9 +89,7 @@ span {
   display: flex;
   flex-direction: column;
   font-size: 16px;
-}
-.edit-review-form {
-  display: none;
+  margin-left: 10px;
 }
 #delete-book {
   background-color: rgb(154, 43, 43);
@@ -108,13 +101,6 @@ span {
   width: 100%;
   justify-content: space-around;
 }
-.menu-review {
-  display: flex;
-  justify-content: space-between;
-  border: none;
-  background-color: white;
-  cursor: pointer;
-}
 input:hover {
   background-color: gray;
   color: white;
@@ -123,6 +109,46 @@ input:hover {
   color: gray;
   font-size: 10px;
 }
+#edits-review, #adds-review {
+  border: none;
+  background-color: white;
+}
+#edits-review:hover, #adds-review:hover {
+  background-color: gray;
+  color: white;
+}
 .review {
-  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+.menu-review {
+  display: flex;
+  justify-content: space-evenly;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+.review-date { 
+  font-size: 12px;
+} 
+.parent-review {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px; 
+}
+.posted-review { 
+  grid-area: 1 / 1 / 2 / 2; 
+  z-index: 0;
+  font-size: 14px;
+}
+.edit-review-form { 
+  display: none;
+  grid-area: 1 / 1 / 2 / 2; 
+  z-index: 1;
+}
+.add-review-form {
+  display: none;
+  margin-top: 10px;
 }

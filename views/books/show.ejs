@@ -12,32 +12,51 @@
         </div>
     </section>
     <h2>Reviews</h2>
+    <section class="review">
         <!--show reviews-->
         <% if (book.reviews.length) { %>
             <% book.reviews.forEach(r => { %>
-            <div class="review">
-                <div class="menu-review">
-                    <img alt="avatar" src="<%= r.userAvatar %>"><%= r.userName %>
+            <div class="menu-review">
+                <img alt="avatar" src="<%= r.userAvatar %>"><%= r.userName %>
                     <% if (user && user._id.equals(r.user)) { %> 
-                            <form method="GET" action="/reviews/<%= r._id %>/edit">
-                                <input class="menu-review" id="edits-review" type="submit" value="Edit" />
+                        <button id="edits-review">Edit</button>
+                            <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                                <input class="menu-review" type="submit" value="Delete" />
                             </form>
-                                <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                                    <input class="menu-review" type="submit" value="Delete" />
-                                </form>
-                        <% } %>
+                    <% } %>
+            </div>
+            <div class="review-date">
+                <p >Reviewed on <%= r.createdAt.toLocaleDateString() %></p>
+            </div>
+            <div class="parent-review">
+                <div class="posted-review">    
+                    <%= r.rating %><br>
+                    <span><%= r.content %></span>
                 </div>
-                <%= r.rating %>
-                <p id="review-date">Reviewed on <%= r.createdAt.toLocaleDateString() %></p>
-                <span><%= r.content %></span>
+                <div class="edit-review-form">
+                    <!--edit a review-->
+                    <form method="POST" action="/reviews/<%= r._id %>?_method=PUT">                        
+                            <select name="rating">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select><br>
+                            <textarea name="content"><%= r.content %></textarea><br>
+                            <input class="button" type="submit" value="Edit Review" />
+                    </form>
+                </div>
             </div>
             <% }); %>
         <% } else { %>
             <p>No Reviews</p>
         <% } %> 
         <br>
+        </section>
         <!--add a review-->
-        <div>
+        <button id="adds-review">Add a Review</button>
+        <div class="add-review-form">
             <form method="POST" action="/books/<%= book._id %>/reviews">
                 <label>Rating:</label>
                 <select name="rating">

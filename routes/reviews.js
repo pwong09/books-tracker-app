@@ -2,7 +2,7 @@ var router = require('express').Router();
 const isLoggedIn = require('../config/auth');
 const reviewsCtrl = require('../controllers/reviews');
 
-//router.get('/reviews/:id/edit', isLoggedIn, reviewsCtrl.edit);
+router.get('/reviews/:id/edit', isLoggedIn, reviewsCtrl.edit);
 
 router.post('/books/:id/reviews', isLoggedIn, reviewsCtrl.create);
 router.delete('/reviews/:id', isLoggedIn, reviewsCtrl.delete);

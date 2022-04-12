@@ -56,6 +56,7 @@ function updateReview(req, res) {
 function editReview(req, res) {
     Book.findOne({'reviews._id': req.params.id}).then(function(book) {
         const review = book.reviews.id(req.params.id);
+        console.log(review)
         if (!review.user.equals(req.user._id)) return res.redirect(`/books/${book._id}`);
         res.redirect(`/books/${book._id}`);
     });
