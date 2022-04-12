@@ -14,77 +14,43 @@
     <h2>Reviews</h2>
         <!--show reviews-->
         <% if (book.reviews.length) { %>
-            <table>
-                <thead>
-                    <tr>
-                        <th>User</th>
-                        <th>Date</th>
-                        <th>Review</th>
-                        <th>Rating</th>
-                        <th>Delete</th>
-                        <th>Edit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% let total = 0; %> 
-                    <% book.reviews.forEach(r => { %>
-                        <% total += r.rating %> 
-                        <tr>
-                            <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>"><%= r.userName %></td> 
-                            <td><%= r.createdAt.toLocaleDateString() %></td>
-                            <td><%= r.content %></td>
-                            <td><%= r.rating %></td>
-                            <td>
-                                <% if (user && user._id.equals(r.user)) { %> 
-                                <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                                    <button type="submit">X</button>
-                                </form>
-                                <% } %>
-                            </td>
-                            <td>
-                                <!--<form method="GET" action="/reviews/<%= r._id %>/edit">
-                                    <button id="edits-review" class="button" type="submit">Edit</button>
-                                </form>-->
-                                <button id="edits-review" class="button" type="submit">Edit</button>
-                            </td>
-                        </tr>
-                        <!--edit a review-->
-                        <tr class="edit-review-form">
-                            <form method="POST" action="/reviews/<%= r._id %>?_method=PUT">
-                                <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>"><%= r.userName %></td>
-                                <td><%= r.createdAt.toLocaleDateString() %></td>
-                                <td><textarea name="content"><%= r.content %></textarea></td>
-                                <td><select name="rating">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select></td>
-                                <td></td>
-                                <td><input class="button" type="submit" value="Edit Review" /></td>
+            <% book.reviews.forEach(r => { %>
+            <div class="review">
+                <div class="menu-review">
+                    <img alt="avatar" src="<%= r.userAvatar %>"><%= r.userName %>
+                    <% if (user && user._id.equals(r.user)) { %> 
+                            <form method="GET" action="/reviews/<%= r._id %>/edit">
+                                <input class="menu-review" id="edits-review" type="submit" value="Edit" />
                             </form>
-                        </tr>
-                    <% }); %>
-                </tbody>
-            </table>
+                                <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                                    <input class="menu-review" type="submit" value="Delete" />
+                                </form>
+                        <% } %>
+                </div>
+                <%= r.rating %>
+                <p id="review-date">Reviewed on <%= r.createdAt.toLocaleDateString() %></p>
+                <span><%= r.content %></span>
+            </div>
+            <% }); %>
         <% } else { %>
             <p>No Reviews</p>
         <% } %> 
+        <br>
         <!--add a review-->
-        <form method="POST" action="/books/<%= book._id %>/reviews">
-            <label>Review:</label>
-            <textarea name="content"></textarea><br>
-            <label>Rating:</label>
-            <select name="rating">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select><br>
-            <input class="button" type="submit" value="Add Review">
-        </form>
+        <div>
+            <form method="POST" action="/books/<%= book._id %>/reviews">
+                <label>Rating:</label>
+                <select name="rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select><br>
+                <textarea name="content"></textarea><br>
+                <input class="button" type="submit" value="Add Review">
+            </form>
+        </div>
     <h2>My Notes</h2>
     <div class="bottom-buttons">
     <!--go back to all books-->

@@ -108,3 +108,21 @@ span {
   width: 100%;
   justify-content: space-around;
 }
+.menu-review {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+input:hover {
+  background-color: gray;
+  color: white;
+}
+#review-date {
+  color: gray;
+  font-size: 10px;
+}
+.review {
+  width: 30%;
+}
