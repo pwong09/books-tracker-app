@@ -10,8 +10,6 @@
 <body>
 <nav>
     <% if (user) { %>
-    <a href=""	<%- title === 'My Account' ? 'class="active"' : '' %>>
-    ACCOUNT</a>
     <a href="/books/all" <%- title === 'My Shelf' ? 'class="active"' : '' %>>MY SHELF</a>
     <a href="/logout">LOG OUT</a>
     <% } else { %>

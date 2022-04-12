@@ -84,6 +84,7 @@ span {
   font-weight: 700;
   margin-top: 10px;
   text-align: center;
+  width: 100px;
 }
 .book-details {
   display: flex;
@@ -91,45 +92,55 @@ span {
   font-size: 16px;
   margin-left: 10px;
 }
+#search-button {
+  width: auto;
+}
 #delete-book {
   background-color: rgb(154, 43, 43);
   border: 1px solid rgb(154, 43, 43);
   color: white;
+  width: auto;
 }
 .bottom-buttons {
   display: flex;
   width: 100%;
   justify-content: space-around;
 }
-input:hover {
-  background-color: gray;
-  color: white;
-}
 #review-date {
   color: gray;
   font-size: 10px;
 }
-#edits-review, #adds-review {
+.crud-button {
   border: none;
   background-color: white;
+  padding: 15px;
 }
-#edits-review:hover, #adds-review:hover {
-  background-color: gray;
-  color: white;
+.crud-button:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 .review {
   display: flex;
   flex-direction: column;
+  width: 260px;
 }
 .menu-review {
   display: flex;
   justify-content: space-evenly;
+  align-items: flex-end;
   border: none;
   background-color: white;
   cursor: pointer;
+  font-size: 14px;
+}
+.review-user {
+  border-radius: 50%;
+  height: 30px;
 }
 .review-date { 
   font-size: 12px;
+  text-align: left;
+  align-self: flex-start;
 } 
 .parent-review {
   display: grid;
@@ -137,11 +148,13 @@ input:hover {
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px; 
+  align-self: flex-start;
 }
 .posted-review { 
   grid-area: 1 / 1 / 2 / 2; 
   z-index: 0;
   font-size: 14px;
+  
 }
 .edit-review-form { 
   display: none;
@@ -152,3 +165,4 @@ input:hover {
   display: none;
   margin-top: 10px;
 }
+

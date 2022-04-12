@@ -8,7 +8,7 @@
             <span>Author(s): </span><%= book.author %><br><br>
             <span>Recommended by: </span><%= book.recommend %>
         <!--update book-->
-            <a class="button" href="/books/<%= book._id %>/edit">Edit Book</a>
+            <a class="button" id="edit-book" href="/books/<%= book._id %>/edit">Edit Book</a>
         </div>
     </section>
     <h2>Reviews</h2>
@@ -17,12 +17,12 @@
         <% if (book.reviews.length) { %>
             <% book.reviews.forEach(r => { %>
             <div class="menu-review">
-                <img alt="avatar" src="<%= r.userAvatar %>"><%= r.userName %>
+                <p><img class="review-user" alt="avatar" src="<%= r.userAvatar %>">   <%= r.userName %></p>
                     <% if (user && user._id.equals(r.user)) { %> 
-                        <button id="edits-review">Edit</button>
-                            <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                                <input class="menu-review" type="submit" value="Delete" />
-                            </form>
+                        <button class="crud-button" id="edits-review">Edit</button>
+                        <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                            <button class="crud-button" type="submit">Delete</button>
+                        </form>
                     <% } %>
             </div>
             <div class="review-date">
@@ -31,7 +31,7 @@
             <div class="parent-review">
                 <div class="posted-review">    
                     <%= r.rating %><br>
-                    <span><%= r.content %></span>
+                    <p><span><%= r.content %></span></p>
                 </div>
                 <div class="edit-review-form">
                     <!--edit a review-->
@@ -55,7 +55,7 @@
         <br>
         </section>
         <!--add a review-->
-        <button id="adds-review">Add a Review</button>
+        <button class="crud-button" id="adds-review">Add a Review</button>
         <div class="add-review-form">
             <form method="POST" action="/books/<%= book._id %>/reviews">
                 <label>Rating:</label>
