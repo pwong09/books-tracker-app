@@ -1,4 +1,5 @@
 const Book = require('../models/book');
+const Note = require('../models/note');
 const request = require('request');
 
 module.exports = {

@@ -7,7 +7,7 @@
             <h2><%= book.title %></h2>
             <span>Author(s): </span><%= book.author %><br><br>
             <span>Recommended by: </span><%= book.recommend %>
-        <!--update book-->
+            <!--update book-->
             <a class="button" id="edit-book" href="/books/<%= book._id %>/edit">Edit Book</a>
         </div>
     </section>
@@ -36,15 +36,15 @@
                 <div class="edit-review-form">
                     <!--edit a review-->
                     <form method="POST" action="/reviews/<%= r._id %>?_method=PUT">                        
-                            <select name="rating">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select><br>
-                            <textarea name="content"><%= r.content %></textarea><br>
-                            <input class="button" type="submit" value="Edit Review" />
+                        <select name="rating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select><br>
+                        <textarea name="content"><%= r.content %></textarea><br>
+                        <input class="button" type="submit" value="Edit Review" />
                     </form>
                 </div>
             </div>
@@ -71,6 +71,20 @@
             </form>
         </div>
     <h2>My Notes</h2>
+    <section class="notes">
+    <!--show all notes with user ID and book ID-->
+
+    </section>
+    <!--add a note-->
+    <button class="crud-button" id="adds-note">Add a Note</button>
+    <div class="add-note-form">
+        <form method="POST" action="/books/<%= book._id %>/notes">
+            <input type="hidden" name="book" value="<%= book._id %>" />
+            <textarea name="text"></textarea><br>
+            <input class="button" type="submit" value="Add Note">
+        </form>
+    </div>
+    <!--footer buttons-->
     <div class="bottom-buttons">
     <!--go back to all books-->
     <a class="button" href="/books/all">Back</a>
