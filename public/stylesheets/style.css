@@ -17,6 +17,7 @@ body {
   grid-template-areas:
     "nav"
     "main"
+    "footer"
 }
 body > nav {
   grid-area: nav;
@@ -41,7 +42,6 @@ body > main {
   align-items: center;
   background-color: #ffffff;
   padding: 20px;
-  overflow-y: scroll;
 }
 
 nav > a {
@@ -187,14 +187,17 @@ footer {
   flex-direction: column;
   align-items: center;
 }
-footer > .copyright {
+.copyright {
   font-size: 10px;
+  color: white;
 }
 footer > a {
+  color: var(--support-button);
   text-decoration: none;
 }
 footer > a:hover {
   text-decoration: underline;
+  color: var(--support-color);
 }
 .socials {
   padding: 0 5px;

@@ -61,9 +61,12 @@ function allBooks(req, res) {
 
 function show(req, res){
     Book.findById(req.params.id, function(err, book) {
-        res.render('books/show', {
-            title: 'My Book',
-            book
+        Note.find({'book': req.params.id}, function (err, notes) {
+            res.render('books/show', {
+                title: 'My Book',
+                book,
+                notes
+            })
         })
     })
 }
