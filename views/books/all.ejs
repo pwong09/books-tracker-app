@@ -1,11 +1,11 @@
 <%- include('../partials/header') %>
-    <h1>My Shelf</h1>
-            <% books.forEach(b => { %>
-                    <img src="<%= b.imageLinks %>"
-                            width="100px" height="auto" alt="<%= b.title %>"><br>
-                    <%= b.title %> by <%= b.author %><br>
-                    <a class="button" href="/books/<%= b._id %>">See More</a><br>
-            <% }); %> 
+<h1>My Shelf</h1>
+        <% books.forEach(b => { %>
+                <img src="<%= b.imageLinks %>"
+                        width="100px" height="auto" alt="<%= b.title %>"><br>
+                <%= b.title %> by <%= b.author %><br>
+                <a class="button" href="/books/<%= b._id %>">See More</a><br>
+        <% }); %> 
 
-    <a class="button" href="/books">Add More Books</a>
+<a class="button" href="/books">Add More Books</a>
 <%- include('../partials/footer') %> 

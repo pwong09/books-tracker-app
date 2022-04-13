@@ -10,6 +10,7 @@ const indexRoutes = require('./routes/index');
 const booksRoutes = require('./routes/books');
 const reviewsRoutes = require('./routes/reviews');
 const notesRoutes = require('./routes/notes');
+const usersRoutes = require('./routes/users');
 // load the env consts
 require('dotenv').config();
 
@@ -55,6 +56,7 @@ app.use('/', indexRoutes);
 app.use('/books', booksRoutes);
 app.use('/', reviewsRoutes);
 app.use('/', notesRoutes);
+app.use('/users', usersRoutes);
 
 // invalid request, send 404 page
 app.use(function(req, res) {
