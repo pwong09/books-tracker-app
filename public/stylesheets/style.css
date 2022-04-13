@@ -90,7 +90,7 @@ span {
   font-weight: 700;
   margin-top: 10px;
   text-align: center;
-  width: 100px;
+  width: 105px;
   cursor: pointer;
 }
 .button:hover {
@@ -107,13 +107,23 @@ span {
 #search-button, #add-to-shelf {
   width: auto;
 }
-#delete-book {
+#add-more {
+  width: auto;
+  background-color: var(--support-button);
+  border: 1px solid var(--support-button);
+  color: black;
+}
+#add-more:hover {
+  background-color: var(--main-button);
+  color: white;
+}
+#delete-book, #delete-user {
   background-color: rgb(154, 43, 43);
   border: 1px solid rgb(154, 43, 43);
   color: white;
   width: auto;
 }
-#delete-book:hover {
+#delete-book:hover, #delete-user:hover {
   background-color: rgb(243, 27, 27);
   border: 1px solid rgb(243, 27, 27);
   color: black;

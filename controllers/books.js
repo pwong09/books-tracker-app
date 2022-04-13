@@ -21,13 +21,13 @@ function index (req, res) {
             const searchResults = JSON.parse(body);
             const results = searchResults.items;
             res.render('books/index', {
-                title: 'Search Books',
+                title: 'KanShu',
                 results
             });
         })
     } else {
     res.render('books/index', {
-        title: 'PW',
+        title: 'KanShu',
         results: null
         });
     }

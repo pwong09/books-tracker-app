@@ -4,8 +4,9 @@ const Schema = mongoose.Schema;
 
 const noteSchema = new Schema ({
     text: {type: String, required: true},
-    user: {type: Schema.Types.ObjectId, ref: 'User'},
-    book: {type: Schema.Types.ObjectId, ref: 'Book'}
+    user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
+    book: {type: Schema.Types.ObjectId, ref: 'Book', required: true},
+    bookTitle: {type: String, required: true}
 } , {timestamps: true
 });
 
