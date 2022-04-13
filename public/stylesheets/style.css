@@ -28,7 +28,6 @@ body > nav {
   align-items: center;
   padding: 0 20px 0 30px;
 }
-
 nav > img {
   width: 34px;
   object-fit: contain;
@@ -43,7 +42,6 @@ body > main {
   background-color: #ffffff;
   padding: 20px;
 }
-
 nav > a {
   margin: 20px;
   text-decoration: none;
@@ -51,7 +49,6 @@ nav > a {
   border-radius: 5px;
   color: white;
 }
-
 nav > a:hover {
   color: white;
   background-color: var(--support-button);
@@ -75,6 +72,9 @@ section {
   margin: 10px;
   display: flex;
   align-items: center;
+}
+.search-results > div {
+  padding: 0 10px;
 }
 span {
   font-weight: 700;
@@ -137,21 +137,21 @@ span {
   color: gray;
   font-size: 10px;
 }
-.crud-button {
+.crud-button, .edits-review {
   border: none;
   background-color: white;
   padding: 15px;
 }
-.crud-button:hover {
+.crud-button:hover, .edits-review:hover {
   text-decoration: underline;
   cursor: pointer;
 }
-.review {
+.review, .notes {
   display: flex;
   flex-direction: column;
   width: 260px;
 }
-.menu-review {
+.menu-review, .menu-note {
   display: flex;
   justify-content: space-evenly;
   align-items: flex-end;
@@ -169,7 +169,7 @@ span {
   text-align: left;
   align-self: flex-start;
 } 
-.parent-review {
+.parent-review, .parent-note {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
@@ -177,15 +177,19 @@ span {
   grid-row-gap: 0px; 
   align-self: flex-start;
 }
-.posted-review { 
+.posted-review, .posted-note { 
   grid-area: 1 / 1 / 2 / 2; 
   z-index: 0;
-  font-size: 14px;
 }
-.edit-review-form { 
+.edit-review-form, .edit-note-form { 
   display: none;
   grid-area: 1 / 1 / 2 / 2; 
   z-index: 1;
+}
+.posted-note {
+  width: 200px;
+  padding: 5px;
+  text-align: center;
 }
 .add-review-form {
   display: none;
@@ -214,4 +218,10 @@ footer > a:hover {
 .socials img {
   width: 3vw;
   height: auto;
+}
+
+@media (max-width: 433px) {
+  body > nav {
+    padding: 0;
+  }
 }

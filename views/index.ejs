@@ -2,22 +2,27 @@
         <h1>Welcome to KanShu!</h1>
 
     <form method="GET" action="/">
-        <label>Find a book by title</label><br>
+        <label>Find a book by</label>
+        <select name="keyword">
+            <option value="intitle">title</option>
+            <option value="inauthor">author</option>
+            <option value="inpublisher">publisher</option>
+            <option value="subject">category</option>
+            <option value="isbn">isbn</option>
+        </select><br>
         <input type="text" name="q" />
         <input class="button" id="search-button" type="submit" value="Search Books" />
     </form>
 
     <% if (results) { %> 
         <% for( let i = 0; i < results.length; i++ ) { %>
-            <section>
+            <section class="search-results">
                 <% if (results[i].volumeInfo) { %>
                 <div>
                     <img 
                         src="<%= results[i].volumeInfo.imageLinks ? results[i].volumeInfo.imageLinks.thumbnail : null %>"
                         alt="<%= results[i].volumeInfo.title %>"
                         width="110" height="auto" /><br>
-                    <span>Average Rating:</span> <%= results[i].volumeInfo.averageRating %><br>
-                    <span>Total Ratings:</span> <%= results[i].volumeInfo.ratingsCount %><br>
                 </div>
                 <div>
                     <span>Title:</span> <%= results[i].volumeInfo.title %><br> 

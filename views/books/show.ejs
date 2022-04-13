@@ -78,20 +78,25 @@
             <div class="posted-note">
                 <%= n.text %><br>
             </div>
+            <div class="edit-a-note">
+            <!--edit a note-->
+                <form class="edit-note-form" method="POST" action="/notes/<%= n._id %>?_method=PUT">                        
+                    <textarea name="text"><%= n.text %></textarea><br>
+                    <input class="button" type="submit" value="Edit Note" />
+                </form>
+            </div>
         </div>
+        <div class="menu-note">
             <!--delete a note-->
             <form action="/notes/<%= n._id %>?_method=DELETE" method="POST">
                 <button class="crud-button" type="submit">Delete</button>
             </form>
-            <!--edit a note-->
-            <form method="POST" action="/notes/<%= n._id %>?_method=PUT">                        
-                <textarea name="text"><%= n.text %></textarea><br>
-                <input class="button" type="submit" value="Edit Note" />
-            </form>
+            <!--edit note button-->
+            <button class="crud-button" id="edits-note">Edit</button>
+        </div>
         <% }) %>
     </section>
     <!--add a note-->
-    <button class="crud-button" id="adds-note">Add a Note</button>
     <div class="add-note-form">
         <form method="POST" action="/books/<%= book._id %>/notes">
             <input type="hidden" name="book" value="<%= book._id %>" />
