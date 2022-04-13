@@ -8,10 +8,17 @@ module.exports = {
 
 function show(req, res) {
     User.findById(req.user._id, function(err, user) {
-        console.log(user)
             res.render('users/show', {
                 user,
                 title: `${user.name}`
             })
         })
 }
+
+// Promise.all([
+//  Note.find({'user': req.user._id}),
+//  Book.find({'user': req.user._id})
+// ]).then( ([notes, books]) => {
+//  console.log(notes);
+//  console.log(books);
+// })
