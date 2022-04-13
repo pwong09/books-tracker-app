@@ -171,7 +171,6 @@ span {
   grid-area: 1 / 1 / 2 / 2; 
   z-index: 0;
   font-size: 14px;
-  
 }
 .edit-review-form { 
   display: none;

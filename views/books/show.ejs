@@ -17,9 +17,9 @@
         <% if (book.reviews.length) { %>
             <% book.reviews.forEach(r => { %>
             <div class="menu-review">
-                <p><img class="review-user" alt="avatar" src="<%= r.userAvatar %>">   <%= r.userName %></p>
+                <p><%= r.userName %></p>
                     <% if (user && user._id.equals(r.user)) { %> 
-                        <button class="crud-button" id="edits-review">Edit</button>
+                        <button class="edits-review">Edit</button>
                         <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
                             <button class="crud-button" type="submit">Delete</button>
                         </form>
@@ -74,7 +74,11 @@
     <section class="notes">
     <!--show all notes associated with user ID and book ID-->
         <% notes.forEach(n => { %>
-            <%= n.text %><br>
+        <div class="parent-note">
+            <div class="posted-note">
+                <%= n.text %><br>
+            </div>
+        </div>
             <!--delete a note-->
             <form action="/notes/<%= n._id %>?_method=DELETE" method="POST">
                 <button class="crud-button" type="submit">Delete</button>

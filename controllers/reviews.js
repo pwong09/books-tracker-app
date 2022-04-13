@@ -11,6 +11,7 @@ function createReview(req, res){
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
         book.reviews.push(req.body);
+        console.log(req.body)
         book.save(function(err) {
             if (err) return res.send(err);
             res.redirect(`/books/${req.params.id}`);
@@ -26,7 +27,7 @@ function deleteReview(req, res){
         book.save().then(function() {
             res.redirect(`/books/${book._id}`);
         }).catch(function(err){
-            return next(err);
+            res.send(err);
         })
     })
 }
@@ -40,7 +41,7 @@ function updateReview(req, res) {
         book.save().then(function() {
             res.redirect(`/books/${book._id}`);
         }).catch(function(err) {
-            return next(err);
+            res.send(err);
         });
     });
 }
