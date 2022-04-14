@@ -11,7 +11,6 @@ function createReview(req, res){
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
         book.reviews.push(req.body);
-        console.log(req.body)
         book.save(function(err) {
             if (err) return res.send(err);
             res.redirect(`/books/${req.params.id}`);

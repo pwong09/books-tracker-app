@@ -23,10 +23,3 @@ function index (req, res) {
         });
     }
 }
-
-// breaking down google API call for GET
-// searching for Daniel Keyes' "Flowers for Algernon":
-// https://www.googleapis.com/books/v1/
-// volumes?q=flowers+inauthor:keyes&
-// just volumes?q=flowers+intitle:flowers& // will this return any title containing flowers?
-// key=yourAPIKey // put in ${key} for yourAPIKey

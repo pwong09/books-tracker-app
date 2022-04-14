@@ -1,5 +1,3 @@
-//change the display for .edit-review to visible
-
 const editReviewEl = document.querySelector('.edits-review');
 const editReviewFormEl = document.querySelector('.edit-review-form');
 const addReviewEl = document.querySelector('#adds-review');

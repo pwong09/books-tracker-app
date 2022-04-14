@@ -44,10 +44,7 @@ function newBook(req, res) {
 function create(req, res) {
     req.body.user = req.user._id;
     const book = new Book(req.body);
-    console.log(book);
-    console.log('create book function')
     book.save(function (err) {
-        console.log('try to save')
         if (err) return res.send(err);
         res.redirect(`/books/${book._id}`);
     })

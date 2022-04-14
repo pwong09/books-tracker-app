@@ -13,8 +13,6 @@ function show(req, res) {
         Note.find({'user': req.user._id}),
         Book.find({'user': req.user._id})
         ]).then( ([notes, books]) => {
-            console.log(notes);
-            console.log(books);
             res.render('users/show', {
                 user,
                 notes,
