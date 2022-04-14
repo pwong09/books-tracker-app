@@ -3,25 +3,25 @@
 <h1>Welcome, <%= user.name %></h1>
 
 <h3>All My Notes</h3>
+<section class="note-box">
 <% notes.forEach(n => { %>
     In <%= n.bookTitle %>: <br>
     <%= n.text %> 
-    <a class="crud-button" href="/books/<%= n.book %>">See More</a><br>
 <% }); %> 
-
+</section>
 <h3>All My Reviews</h3>
+<section class="review-box">
 <% if (books) { %>
     <% books.forEach(b => { %>
         <% b.reviews.forEach(r => { %>
             Review for <%= b.title %>: <br> 
             <%= r.content %>
-            <a class="crud-button" href="/books/<%= b._id %>">See More</a><br>
         <% }) %>
     <% }) %>
 <% } else { %>
     <h3>No Reviews Yet</h3>
 <% } %> 
-
+</section>
 
 <!--delete user-->
 <form method="POST" action="/users/<%= user._id %>?_method=DELETE">

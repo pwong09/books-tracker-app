@@ -210,6 +210,14 @@ span {
   display: none;
   margin-top: 10px;
 }
+.note-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.note-nav {
+  display: flex;
+}
 footer {
   grid-area: footer;
   display: flex;
