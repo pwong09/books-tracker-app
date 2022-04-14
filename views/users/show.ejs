@@ -6,7 +6,7 @@
 <% notes.forEach(n => { %>
     In <%= n.bookTitle %>: <br>
     <%= n.text %> 
-    <a class="button" href="/books/<%= n.book %>">See More</a><br>
+    <a class="crud-button" href="/books/<%= n.book %>">See More</a><br>
 <% }); %> 
 
 <h3>All My Reviews</h3>
@@ -15,7 +15,7 @@
         <% b.reviews.forEach(r => { %>
             Review for <%= b.title %>: <br> 
             <%= r.content %>
-            <a class="button" href="/books/<%= b._id %>">See More</a><br>
+            <a class="crud-button" href="/books/<%= b._id %>">See More</a><br>
         <% }) %>
     <% }) %>
 <% } else { %>

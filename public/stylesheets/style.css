@@ -153,10 +153,13 @@ span {
   border: none;
   background-color: white;
   padding: 15px;
+  text-decoration: none;
+  color: gray;
 }
 .crud-button:hover, .edits-review:hover {
   text-decoration: underline;
   cursor: pointer;
+  color: black;
 }
 .review, .notes {
   display: flex;
