@@ -6,7 +6,7 @@ This app utilizes Google Books API to allow all users to search for books by tit
 ![landing page](./public/images/landing-page.png)  
 ![my shelf page](./public/images/my-shelf.png)  
   
-## Technologies Used:
+## Technologies Used
 CSS  
 Express  
 JavaScript  
@@ -16,7 +16,7 @@ MongoDB / mongoose
 Node.js  
 Passport  
   
-## Getting Started:
+## Getting Started
 [KanShu](https://kanshu.herokuapp.com)  
 [Trello](https://trello.com/b/S220MMEg/pw-books-app)  
 [Wireframe](https://www.figma.com/file/wo30ysZk8aMByX2jwf3V92/Books-Tracker-Wireframe?node-id=0%3A1)  
