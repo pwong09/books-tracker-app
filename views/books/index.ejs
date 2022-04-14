@@ -3,7 +3,7 @@
 <h1>Welcome to KanShu, <%= user.name %>!</h1>
 
 <section class="search-form">
-    <form method="GET" action="/">
+    <form method="GET" action="/books">
         <label>Find a book by</label>
         <select class="form-select" aria-label="Default select example" name="keyword">
             <option selected value="intitle">title</option>
@@ -38,14 +38,17 @@
                 <span>Description:</span> 
                     <%= typeof(results[i].volumeInfo.description) === 'string' ? results[i].volumeInfo.description.substring(0, 225) : null %> 
             </div>
+            <div>
+                <form action="/books/new" method="GET">
+                    <input type="hidden" name="googleId" value="<%= results[i].id %>" />
+                    <input type="hidden" name="title" value="<%= results[i].volumeInfo.title %>" />
+                    <input type="hidden" name="author" value="<%= results[i].volumeInfo.authors %>" />
+                    <input type="hidden" name="imageLinks" value="<%= results[i].volumeInfo.imageLinks ? results[i].volumeInfo.imageLinks.thumbnail : null %>" />
+                    <input class="button" id="add-to-shelf" type="submit" value="Add to My Shelf" />
+                </form>
+            </div>
         </section>
-        <form action="/books/new" method="GET">
-            <input type="hidden" name="googleId" value="<%= results[i].id %>" />
-            <input type="hidden" name="title" value="<%= results[i].volumeInfo.title %>" />
-            <input type="hidden" name="author" value="<%= results[i].volumeInfo.authors %>" />
-            <input type="hidden" name="imageLinks" value="<%= results[i].volumeInfo.imageLinks ? results[i].volumeInfo.imageLinks.thumbnail : null %>" />
-            <input class="button" id="add-to-shelf" type="submit" value="Add to My Shelf" />
-        </form>
+
     <% } %>
 <% } %> 
 

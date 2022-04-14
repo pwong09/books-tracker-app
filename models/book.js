@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// create Review Model
 const reviewSchema = new Schema ({
     content: String,
     rating: {type: Number, min: 1, max: 5},
@@ -10,6 +11,7 @@ const reviewSchema = new Schema ({
 }, {timestamps: true
 });
 
+// create main Book Model
 const bookSchema = new Schema ({
     googleId: String,
     title: {type: String, required: true},

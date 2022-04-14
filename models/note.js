@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
+// create Note Model
 const noteSchema = new Schema ({
     text: {type: String, required: true},
     user: {type: Schema.Types.ObjectId, ref: 'User', required: true},

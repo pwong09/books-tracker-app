@@ -13,6 +13,7 @@ module.exports = {
     update: updateBook
 }
 
+// index function shows search bar to find books to add to user's Shelf
 function index (req, res) {
     if (req.query.q) {
         const key = process.env.API_KEY
@@ -33,6 +34,7 @@ function index (req, res) {
     }
 }
 
+// takes form values from index to new view
 function newBook(req, res) {
     const book = req.query;
     res.render('books/new', {
@@ -41,6 +43,7 @@ function newBook(req, res) {
     })
 }
 
+// actually add and save the book to user's Shelf
 function create(req, res) {
     req.body.user = req.user._id;
     const book = new Book(req.body);
@@ -50,6 +53,7 @@ function create(req, res) {
     })
 }
 
+// view all books on user's Shelf
 function allBooks(req, res) {
     Book.find({'user': req.user._id}, function(err, books) {
         res.render('books/all', {
@@ -59,6 +63,7 @@ function allBooks(req, res) {
     })
 }
 
+// show individual book on user's Shelf
 function show(req, res){
     Book.findById(req.params.id, function(err, book) {
         Note.find({'user': req.user._id, 'book': req.params.id}, function (err, notes) {
@@ -71,12 +76,14 @@ function show(req, res){
     })
 }
 
+// delete individual book
 function deleteBook(req, res) {
     Book.findByIdAndDelete(req.params.id, function(err) {
         res.redirect('/books/all')
     })
 }
 
+// edit individual book - takes user to an edit view
 function edit(req, res) {
     Book.findById(req.params.id, function(err, book) {
         if (!book.user.equals(req.user._id)) return res.redirect('/books');
@@ -84,6 +91,7 @@ function edit(req, res) {
     });
 }
 
+// back-end update and save changes to book
 function updateBook(req, res) {
     Book.findOne({'_id': req.params.id}, function(err, book) {
         if (!book.user.equals(req.user._id)) return res.redirect('/books/edit');
