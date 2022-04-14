@@ -74,9 +74,14 @@ section {
   align-items: center;
 }
 
-.search-form > select:focus {
-  min-width: 200px;
-  width: auto;
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input-align {
+  display: flex;
+  justify-content: flex-end;
 }
 .search-results > div {
   padding: 0 10px;
