@@ -73,6 +73,11 @@ section {
   display: flex;
   align-items: center;
 }
+
+.search-form > select:focus {
+  min-width: 200px;
+  width: auto;
+}
 .search-results > div {
   padding: 0 10px;
 }

@@ -1,19 +1,19 @@
 <%- include('partials/header') %>
         <h1>Welcome to KanShu!</h1>
-
-    <form method="GET" action="/">
-        <label>Find a book by</label>
-        <select name="keyword">
-            <option value="intitle">title</option>
-            <option value="inauthor">author</option>
-            <option value="inpublisher">publisher</option>
-            <option value="subject">category</option>
-            <option value="isbn">isbn</option>
-        </select><br>
-        <input type="text" name="q" />
-        <input class="button" id="search-button" type="submit" value="Search Books" />
-    </form>
-
+    <section>
+        <form method="GET" action="/">
+            <label>Find a book by</label>
+            <select class="form-select" aria-label="Default select example" name="keyword">
+                <option selected value="intitle">title</option>
+                <option value="inauthor">author</option>
+                <option value="inpublisher">publisher</option>
+                <option value="subject">category</option>
+                <option value="isbn">isbn</option>
+            </select><br>
+            <input class="input-group-lg" type="text" name="q" />
+            <input class="button" id="search-button" type="submit" value="Search Books" />
+        </form>
+    </section>
     <% if (results) { %> 
         <% for( let i = 0; i < results.length; i++ ) { %>
             <section class="search-results">
