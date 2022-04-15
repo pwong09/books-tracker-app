@@ -118,11 +118,19 @@ span {
 #search-button, #add-to-shelf {
   width: auto;
 }
+.all-books {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 50px;
+}
 #add-more {
   width: auto;
   background-color: var(--support-button);
   border: 1px solid var(--support-button);
   color: black;
+  margin-bottom: 30px;
 }
 #add-more:hover {
   background-color: var(--main-button);

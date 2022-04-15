@@ -1,13 +1,14 @@
 <%- include('../partials/header') %>
 
 <h1>My Shelf</h1>
+<div class="all-books">
         <% books.forEach(b => { %>
                 <img src="<%= b.imageLinks %>"
                         width="100px" height="auto" alt="<%= b.title %>"><br>
                 <%= b.title %> by <%= b.author %><br>
                 <a class="button" href="/books/<%= b._id %>">See More</a><br>
         <% }); %> 
-
+</div>
 <a class="button" id="add-more" href="/books">Add More Books</a>
 
 <%- include('../partials/footer') %> 
