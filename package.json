@@ -1,9 +1,14 @@
 {
-  "name": "sei-students",
-  "version": "0.0.0",
+  "name": "kanshu",
+  "version": "1.0.0",
   "private": true,
+  "main": "index.js",
   "scripts": {
-    "start": "node ./src/bin/www"
+    "build": "tsc",
+    "dev": "tsc --watch & nodemon dist",
+    "test": "tsc && mocha dist/**/*.spec.js",
+    "lint": "eslint src --ext ts",
+    "tsc": "tsc"
   },
   "dependencies": {
     "cookie-parser": "^1.4.4",
@@ -19,6 +24,8 @@
     "passport": "^0.6.0",
     "passport-google-oauth": "^2.0.0",
     "passport-google-oauth20": "^1.0.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "tsc": "1.20150623.0",
+    "typescript": "2.3.3"
   }
 }
