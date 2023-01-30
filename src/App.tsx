@@ -1,4 +1,6 @@
+import React from 'react'
 import * as express from 'express'
+import SearchBar from './components/search-bar/SearchBar'
 
 class App {
   public express
@@ -16,6 +18,14 @@ class App {
       })
     })
     this.express.use('/', router)
+  }
+
+  render() {
+    return (
+      <div>
+        <SearchBar />
+      </div>
+    )
   }
 }
 
