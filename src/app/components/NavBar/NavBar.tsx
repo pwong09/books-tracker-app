@@ -1,4 +1,8 @@
+'use client';
+
 import { JSX } from "react";
+
+import Link from "next/link";
 
 import "./NavBar.css";
 
@@ -46,12 +50,54 @@ export const NavBar = () => {
     ));
   };
 
+  const handleSkipNavigationClick = (event: React.MouseEvent<HTMLAnchorElement>): void => {
+    focusOnMainContent();
+    event.preventDefault();
+  };
+
+  const handleSkipNavigationKeydown = (event: React.KeyboardEvent<HTMLAnchorElement>): void => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      focusOnMainContent();
+      event.preventDefault();
+    }
+  };
+
+  const focusOnMainContent = (): void => {
+    const mainContent = document.getElementById('main-content') as HTMLElement | null;
+    if (mainContent) {
+      mainContent.scrollIntoView({ behavior: 'smooth' });
+
+      const firstFocusableElement = mainContent.querySelector('a, button, input, textarea, select');
+      if (firstFocusableElement) {
+        (firstFocusableElement as HTMLElement).focus();
+      } else {
+        const firstChildElement = mainContent.firstChild as HTMLElement | null;
+        if (firstChildElement) {
+          const styles = {
+            outline: '2px solid blue',
+            outlineOffset: '2px',
+          }
+          firstChildElement.style.outline = styles.outline;
+          firstChildElement.style.outlineOffset = styles.outlineOffset;
+        }
+      }
+    }
+  }
+
   return (
-    <nav>
-      <ul>
-        {renderSearch()}
-        {renderNavigationLinks()}
-      </ul>
-    </nav>
+    <>
+      <Link
+        href="#main-content"
+        id="navigation-skip-link"
+        onClick={handleSkipNavigationClick}
+        onKeyDown={handleSkipNavigationKeydown}
+      >Skip navigation link</Link>
+      <nav>
+        <ul>
+          {renderSearch()}
+          {renderNavigationLinks()}
+        </ul>
+      </nav>
+    </>
   );
 };
